@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import UserController from ".";
-import { IIndexedUser } from "../../shared/interfaces/user";
+import ExampleController from ".";
 
-// Get All Users
-export const useUsers = () => {
-    const [users, setUsers] = useState([] as IIndexedUser[]);
+// Get All Example Items
+export const useExample = () => {
+    const [example, setExample] = useState([] as any[] /*here your resource type goes*/);
 
     useEffect(() => {
-        UserController.getAll({ data: null, onLoaded: setUsers });
+        ExampleController.getAll({ data: null, onLoaded: setExample });
     }, []);
 
-    return users;
+    return example;
 }
